@@ -1,0 +1,153 @@
+/* home */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    background-color:#9df9ef;
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+header {
+    text-align: center;
+    padding: 2px;
+    background-color: #FF6B0D;
+}
+marquee{
+    background-color: #ffb766;
+    font-size: 20px;
+    padding: 2px;
+}
+
+section {
+    padding: 20px;
+}
+.pageLink{
+    text-decoration: none;
+    color:  #007185;
+}
+nav{
+    background-color: #30333b;
+    color: white;
+    padding: 20px 30px;
+}
+.navTop{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.search{
+    /* margin-right: 25px; */
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+.searchInput{
+    border: none;
+    background-color: transparent;
+}
+.searchIcon{
+    background-color: rgb(246, 167, 21);
+    padding-left: 4px;
+    padding-top: 2px;
+    border-radius: 10px;
+}
+.navBottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.menuItems{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 50px;    
+    /* cursor: pointer;    */
+} 
+
+/* supermarket */
+.pic{
+    padding: 20px;
+    margin: 8px;
+    max-width: 200px;
+    max-height: 200px;
+    border: 10px solid #dee2e6;
+}
+.text{
+    padding-left: 20px;
+    margin: 0px;
+}
+
+
+/* aboutus */
+
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  } */
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .title {
+    color: grey;
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
