@@ -35,10 +35,10 @@ nav {
   background-color: #30333b;
   color: white;
   padding: 20px 30px;
-  position: fixed; /* Make it stick/fixed */
+  /* position: fixed;
   top: 0;
   width: 100%;
-  transition: top 0.3s;
+  transition: top 0.3s; */
 }
 .navTop {
   display: flex;

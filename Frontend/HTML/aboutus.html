@@ -2,19 +2,26 @@
 <html>
   <head>
     <title>About us page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/styles.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/styles.css" />
   </head>
   <body>
+    <div class="about-section">
+      <h1>About Us Page</h1>
+      <p>Some text about who we are and what we do.</p>
+      <p>
+        Resize the browser window to see that this page is responsive by the
+        way.
+      </p>
+    </div>
+
     <div class="container">
-      <div class="about-section">
-        <h1>About Us Page</h1>
-        <p>Some text about who we are and what we do.</p>
-        <p>Resize the browser window to see that this page is responsive by the way.</p>
-      </div>
-      
-      <h2 style="text-align:center">Our Team</h2>
+      <h2 style="text-align: center">Our Team</h2>
       <div class="row">
         <!-- <div class="column">
           <div class="card">
@@ -28,7 +35,7 @@
         </div> -->
         <div class="column">
           <div class="card">
-            <img src="../pictures/omar.PNG" alt="Omar" style="width:100%">
+            <img src="../pictures/omar.PNG" alt="Omar" style="width: 100%" />
             <div class="container">
               <h2>Omar Mohamed Hatem</h2>
               <p class="title">Team leader & Founder</p>
@@ -38,10 +45,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="column">
           <div class="card">
-            <img src="../pictures/youssef ahmed.png" alt="Youssef" style="width:100%">
+            <img
+              src="../pictures/youssef ahmed.png"
+              alt="Youssef"
+              style="width: 100%"
+            />
             <div class="container">
               <h2>Youssef Ahmed</h2>
               <p class="title">Frontend developer</p>
@@ -51,46 +62,112 @@
             </div>
           </div>
         </div>
-        
+
         <div class="column">
           <div class="card">
-            <img src="../pictures/ahmed amr.png" alt="Ahmed" style="width:100%">
+            <img
+              src="../pictures/ahmed amr.png"
+              alt="Ahmed"
+              style="width: 100%"
+            />
             <div class="container">
               <h2>Ahmed Amr</h2>
-            <p class="title">Backend developer</p>
-            <p>Some text that describes me ...</p>
-            <p>ahmed@example.com</p>
-            <p><button class="button">Contact</button></p>
+              <p class="title">Backend developer</p>
+              <p>Some text that describes me ...</p>
+              <p>ahmed@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <img
+              src="../pictures/khaled walid.png"
+              alt="khaled"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>khaled walid</h2>
+              <p class="title">database developer</p>
+              <p>Some text that describes me ...</p>
+              <p>khaled@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <img
+              src="../pictures/mohamed ali.png"
+              alt="Mohamed"
+              style="width: 100%"
+            />
+            <div class="container">
+              <h2>Mohamed ali</h2>
+              <p class="title">Backend developer</p>
+              <p>Some text that describes me ...</p>
+              <p>Mohamed@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="column">
-        <div class="card">
-          <img src="../pictures/khaled walid.png" alt="khaled" style="width:100%">
-          <div class="container">
-            <h2>khaled walid</h2>
-            <p class="title">database developer</p>
-            <p>Some text that describes me ...</p>
-            <p>khaled@example.com</p>
-            <p><button class="button">Contact</button></p>
+    </div>
+    <div class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul class="links">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Collection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="links">
+            <li><a href="supermarket.html">Supermarket</a></li>
+            <li><a href="clothes.html">Clothes</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="#">Popular Designs</a></li>
+            <li><a href="#">New Uploads</a></li>
+            <li><a href="#">Art Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Let us Help You</h4>
+          <ul class="links">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">shipping & Delivery</a></li>
+            <li><a href="#">Returns & Replacment</a></li>
+            <li><a href="#">Souq.com App download</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>
+            Subscribe to our newsletter for a weekly dose of news, updates,
+            helpful tips, and exclusive offers.
+          </p>
+          <form action="#">
+            <input type="text" placeholder="Your email" required />
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <div class="icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="footer-col">
+            <h4>© 2024 Made by Omar Mohamed. All Rights Reserved</h4>
           </div>
         </div>
       </div>
-      <div class="column">
-        <div class="card">
-          <img src="../pictures/mohamed ali.png" alt="Mohamed" style="width:100%">
-          <div class="container">
-            <h2>Mohamed ali</h2>
-            <p class="title">Backend developer</p>
-            <p>Some text that describes me ...</p>
-            <p>Mohamed@example.com</p>
-            <p><button class="button">Contact</button></p>
-          </div>
-        </div>
-      </div>
-    </div> 
+    </div>
     <script>
       // You can add your JavaScript here
-      </script>
+    </script>
   </body>
 </html>

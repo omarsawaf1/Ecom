@@ -1,0 +1,232 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Basket</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../cart/cart.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="navTop">
+        <div class="logo">
+          <a href="../html/index.html" class="logo">
+            <img
+              src="../pictures/souq_background.png"
+              alt="logo"
+              width="70px"
+            />
+          </a>
+        </div>
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search souq.com"
+            class="searchInput"
+          />
+          <img
+            src="../pictures/search2.png"
+            width="30"
+            height="25"
+            alt=""
+            class="searchIcon"
+          />
+        </div>
+        <div class="navItem">
+          <button class="login-btn">LOG IN</button>
+        </div>
+      </div>
+      <div class="navBottom">
+        <a class="menuItems" href="../html/supermarket.html">Supermarket</a>
+        <a class="menuItems" href="../html/clothes.html">Clothes</a>
+        <a class="menuItems" href="../html/electronics.html">Electronics</a>
+      </div>
+    </nav>
+
+    <!-- <div class="shop-item">
+      <span class="shop-item-title">Coffee Cup</span>
+      <img class="shop-item-image pic" src="../pictures/h.jpg" />
+      <div class="shop-item-details">
+        <span class="shop-item-price">6.99</span>
+        <button class="btn btn-primary shop-item-button" type="button">
+          ADD TO CART
+        </button>
+      </div>
+    </div> -->
+
+    <main>
+      <div class="basket">
+        <!-- <div class="basket-module">
+          <label for="promo-code">Enter a promotional code</label>
+          <input
+            id="promo-code"
+            type="text"
+            name="promo-code"
+            maxlength="5"
+            class="promo-code-field"
+          />
+          <button class="promo-code-cta">Apply</button>
+        </div> -->
+        <div class="basket-labels">
+          <ul>
+            <li name="lis" class="item item-heading">Item</li>
+            <li name="lis" class="price">Price</li>
+            <li name="lis" class="quantity">Quantity</li>
+            <li name="lis" class="subtotal">Subtotal</li>
+          </ul>
+        </div>
+        <div class="basket-product">
+          <div class="cart-items item"></div>
+          <!--  <div class="item">
+            <div class="product-image">
+              <img
+                src="../pictures/honey.jpg"
+                alt="Placholder Image 2"
+                class="product-frame"
+              />
+            </div>
+            <div class="product-details">
+              <h1>
+                <strong
+                  ><span class="item-quantity">4</span> x Emtnan honey</strong
+                >
+              </h1>
+              <p><strong>Weight 200g</strong></p>
+              <p>Product Code - 232321939</p>
+            </div>
+          </div>
+          <div class="price">26</div>
+          <div class="quantity">
+            <input type="number" value="4" min="1" class="quantity-field" />
+          </div>
+          <div class="subtotal">104</div>
+          <div class="remove">
+            <button>Remove</button>
+          </div>
+        </div>
+        <div class="basket-product">
+          <div class="item">
+            <div class="product-image">
+              <img
+                src="../pictures/phone2.jpg"
+                alt="Placholder Image 2"
+                class="product-frame"
+              />
+            </div>
+            <div class="product-details">
+              <h1>
+                <strong
+                  ><span class="item-quantity">1</span> x Xiaomi phone</strong
+                >
+                8gb ram 256gb storage
+              </h1>
+              <p><strong>Color Blue</strong></p>
+              <p>Product Code - 232321939</p>
+            </div>
+          </div>
+          <div class="price">10000</div>
+          <div class="quantity">
+            <input type="number" value="1" min="1" class="quantity-field" />
+          </div>
+          <div class="subtotal">10000</div>
+          <div class="remove">
+            <button>Remove</button>
+          </div> -->
+        </div>
+      </div>
+      <aside>
+        <div class="summary">
+          <div class="summary-total-items">
+            <span class="total-items"></span> Items in your Bag
+          </div>
+          <div class="summary-subtotal">
+            <div class="subtotal-title">Subtotal</div>
+            <div
+              class="subtotal-value final-value cart-total-price"
+              id="basket-subtotal"
+            >
+              0
+            </div>
+            <!-- <div class="summary-promo hide">
+              <div class="promo-title">Promotion</div>
+              <div class="promo-value final-value" id="basket-promo"></div>
+            </div> -->
+          </div>
+          <div class="summary-delivery">
+            <select
+              name="delivery-collection"
+              class="summary-delivery-selection"
+            >
+              <option value="0" selected="selected">
+                Select Collection or Delivery
+              </option>
+              <option value="collection">Pick up from one of our Shops</option>
+              <option value="first-class">DHL Shipping</option>
+              <option value="second-class">UPS Shipping</option>
+              <option value="signed-for">SOUQ.COM Shipping</option>
+            </select>
+          </div>
+          <div class="summary-total">
+            <div class="total-title">Total</div>
+            <div class="total-value final-value" id="basket-total">0</div>
+          </div>
+          <div class="summary-checkout">
+            <button class="checkout-cta btn-purchase">Checkout</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <div class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul class="links">
+            <li><a href="../html/aboutus.html">About Us</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Collection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="links">
+            <li><a href="../html/supermarket.html">Supermarket</a></li>
+            <li><a href="../html/clothes.html">Clothes</a></li>
+            <li><a href="../html/electronics.html">Electronics</a></li>
+            <li><a href="#">Popular Designs</a></li>
+            <li><a href="#">New Uploads</a></li>
+            <li><a href="#">Art Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Let us Help You</h4>
+          <ul class="links">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">shipping & Delivery</a></li>
+            <li><a href="#">Returns & Replacment</a></li>
+            <li><a href="#">Souq.com App download</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="footer-col">
+            <h4>© 2024 Made by Omar Mohamed. All Rights Reserved</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../cart/cart.js"></script>
+    <script src="../javascript/scripts.js"></script>
+  </body>
+</html>
