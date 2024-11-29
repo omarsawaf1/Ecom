@@ -32,4 +32,9 @@ router.get('/login', (req, res) => {
 router.get('/electronics', (req, res) => { 
     res.status(200).sendFile(path.join(__dirname, '../../front-end/html/electronics.html'));    
 })
+
+router.get('/cart', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/cart.html'));
+})
+
 export default router
