@@ -11,25 +11,25 @@ const __dirname = path.dirname(__filename);
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/home.html'));
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/index.html'));
 })
 router.get('/aboutus', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/aboutus.html'));
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/aboutus.html'));
 })
 router.get('/clothes', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/clothes.html'));
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/clothes.html'));
 })
 router.get('/deals', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/deals.html'));
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/deals.html'));
 })
 router.get('/supermarket', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/supermarket.html'));
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/supermarket.html'));
 })
-router.get('/signin', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/signin.html'));
-})
-router.get('/signup', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../Frontend/HTML/signup.html'));
+router.get('/login', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/login.html'));
 })
 
+router.get('/electronics', (req, res) => { 
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/electronics.html'));    
+})
 export default router
