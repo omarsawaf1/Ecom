@@ -2,9 +2,9 @@
   "name": "ecom",
   "version": "1.0.0",
   "description": "Database project\r Frontend: 1-Omar Mohamed Hatem 2- Youssef Ahmed\r Backend: 1-Ahmed Amr 2-Mohamed Ali\r sql: Khaled Waleed",
-  "main": "backend/server.mjs",
+  "main": "back-end/server.mjs",
   "scripts": {
-    "start": "nodemon ./Backend/server.mjs",
+    "start": "nodemon ./back-end/server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
