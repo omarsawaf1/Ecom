@@ -1,0 +1,7 @@
+#this file to ignore file by git 
+#of course you need this file
+#.env for enviromental variables you must fill it
+# i will pass it once and all should remove after that from repo 
+# not from you pc dah
+#node_modules for packages just in cli (npm install)
+node_modules
