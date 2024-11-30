@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {hashPassword,checkPassword} from "../controllers/password.mjs"
+import {hashPassword,checkPassword} from "../middlewares/password.mjs"
 import {data} from "../shared-resources/data.mjs"
 const router= Router()
 //query parameters

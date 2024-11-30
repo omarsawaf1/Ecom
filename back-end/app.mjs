@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import staticFilesRouter from './routes/static-files.mjs'
 import pagesRouter from './routes/pages.mjs'
 import usersRouter from './routes/users.mjs'
-
+import loginSignup from './routes/login-signup.mjs'
 // dirname, filename is not supported in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(usersRouter)
 app.use(pagesRouter)
 app.use(staticFilesRouter)
+app.use(loginSignup)
 
 let data = [
     { userName: 'sara', id: 1, salary: 1000 },
