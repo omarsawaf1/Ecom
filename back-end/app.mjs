@@ -30,11 +30,6 @@ let data = [
     { userName: 'mohamed', id: 3, salary: 3000 }
 ]
 
-app.get('/testerrors', (req, res) => {
-    console.log('test1 complete')
-    console.log('test2 complete')
-    res.status(200).send('Errors tested successfully')
-})
 
 console.log('working')
 console.log(__dirname)
