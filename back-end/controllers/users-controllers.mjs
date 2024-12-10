@@ -35,4 +35,22 @@ export async function signupController(req, res) {
         return res.status(500).json({ success: false, message: 'Internal server error' });
     }
 }
+export async function loginController(req, res) {
+    try {
+        const { password, email ,userType} = req.body;
+
+        const result = await user.checkPassword(email, password,userType);
+
+        if (result.success) {
+            // If password is correct, return success response
+            return res.status(200).json({ success: true, message: result.message ,id:result.userId });
+        } else {
+            // If password is incorrect
+            return res.status(401).json({ success: false, message: result.message});
+        }
+    } catch (error) {
+        console.error('Error in loginController:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+}
 
