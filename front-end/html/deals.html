@@ -44,6 +44,7 @@
         <a class="menuItems" href="supermarket">Supermarket</a>
         <a class="menuItems" href="clothes">Clothes</a>
         <a class="menuItems" href="electronics">Electronics</a>
+        <a class="menuItems" href="cart">Shopping cart</a>
       </div>
     </nav>
     <div class="shop-item">
@@ -51,7 +52,14 @@
       <img class="shop-item-image pic" src="../pictures/headset.jpg" />
       <div class="shop-item-details">
         <span class="shop-item-price">6.99</span>
-        <button class="btn btn-primary shop-item-button" type="button">
+        <button
+          data-id="1"
+          data-name="headset"
+          data-price="6.99"
+          data-image="../pictures/headset.jpg"
+          class="btn btn-primary shop-item-button"
+          type="button"
+        >
           ADD TO CART
         </button>
       </div>
@@ -105,12 +113,11 @@
             <i class="fa-brands fa-github"></i>
           </div>
           <div class="footer-col">
-            <h4> 2024 Made by Omar Mohamed. All Rights Reserved</h4>
+            <h4>2024 Made by Omar Mohamed. All Rights Reserved</h4>
           </div>
         </div>
       </div>
     </div>
-    <!-- <script src="../Tests/car.js"></script> -->
+    <script src="../javascript/scripts.js"></script>
   </body>
 </html>
-

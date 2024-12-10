@@ -342,6 +342,9 @@ form button:hover {
     padding: 7px 10px;
   }
 }
+.radio-btn {
+  margin-top: 10px;
+}
 
 @media (max-width: 760px) {
   .form-popup {

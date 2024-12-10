@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +26,7 @@
         </a>
         <ul class="links">
           <span class="close-btn material-symbols-rounded">close</span>
-          <li><a href="/">Home</a></li>
+          <li><a href="/">HOME</a></li>
           <li><a>SUPERMARKET</a></li>
           <li><a>CLOTHES</a></li>
           <li><a>ELECTRONICS</a></li>
@@ -59,6 +58,26 @@
               <input id="loginPassword" type="password" required />
               <label>Password</label>
             </div>
+            <div class="radio-btn">
+              <input
+                id="radioBtn1"
+                type="radio"
+                name="who"
+                value="seller"
+                required
+              />
+              <label>Seller</label>
+            </div>
+            <div class="radio-btn">
+              <input
+                id="radioBtn2"
+                type="radio"
+                name="who"
+                value="buyer"
+                required
+              />
+              <label>Buyer</label>
+            </div>
             <a href="#" class="forgot-pass-link">Forgot password?</a>
             <button type="submit">Log In</button>
           </form>
@@ -84,8 +103,40 @@
               <label>Enter your email</label>
             </div>
             <div class="input-field">
+              <input id="fname" name="signText" type="text" required />
+              <label>Enter your first name</label>
+            </div>
+            <div class="input-field">
+              <input id="lname" name="signText" type="text" required />
+              <label>Enter your last name</label>
+            </div>
+            <div class="input-field">
               <input id="signPassword" type="password" required />
               <label>Create password</label>
+            </div>
+            <div class="input-field">
+              <input id="phone1" type="number" required />
+              <label>Phone number 1</label>
+            </div>
+            <div class="radio-btn">
+              <input
+                id="radioBtn3"
+                type="radio"
+                name="who"
+                value="seller"
+                required
+              />
+              <label>Seller</label>
+            </div>
+            <div class="radio-btn">
+              <input
+                id="radioBtn4"
+                type="radio"
+                name="who"
+                value="buyer"
+                required
+              />
+              <label>Buyer</label>
             </div>
             <div class="policy-text">
               <input type="checkbox" id="policy" />
@@ -160,4 +211,3 @@
     <script src="../javascript/login-signup.js"></script>
   </body>
 </html>
-

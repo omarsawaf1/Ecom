@@ -59,3 +59,112 @@ function ValidateEmail(input) {
     return false;
   }
 }
+// signup
+document
+  .getElementById("signForm")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect user details from form
+    const email = document.getElementById("signEmail").value;
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const password = document.getElementById("signPassword").value;
+    const userType = document.getElementById("radioBtn3").checked ? 1 : 0; // 1 = seller, 0 = buyer
+
+    // Prepare additionalDetails based on userType
+    let additionalDetails = {};
+    if (userType === 0) {
+      // Buyer-specific additional details
+      additionalDetails = {
+        isPrime: 1,
+        primeExpiryDate: "2025-01-01",
+      };
+    } else if (userType === 1) {
+      // Seller-specific additional details
+      additionalDetails = {
+        description: "Experienced Seller",
+        averageRating: 4.5,
+        ratingCount: 20,
+      };
+    }
+
+    // Prepare the JSON payload
+    const signupData = {
+      email,
+      fname,
+      lname,
+      password, // In production, ensure this is hashed on the backend
+      userType,
+      additionalDetails,
+    };
+
+    try {
+      // Send signup data to backend
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signupData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert("Signup successful!");
+        if (userType === 1) {
+          window.location.href = "/seller"; // Redirect to seller page
+        } else {
+          window.location.href = "/"; // Redirect to buyer homepage
+        }
+      } else {
+        alert(result.message || "Signup failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      alert("An error occurred. Please try again.");
+    }
+  });
+
+//login
+
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect login info
+    const loginData = {
+      email: document.getElementById("loginEmail").value,
+      password: document.getElementById("loginPassword").value,
+      userType: document.getElementById("radioBtn1").checked ? 1 : 0, // 1 = seller, 0 = buyer
+    };
+
+    try {
+      // Send login data to backend
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert("Login successful!");
+        if (loginData.userType === 1) {
+          window.location.href = "/seller"; // Redirect to seller page
+        } else {
+          window.location.href = "/"; // Redirect to buyer homepage
+        }
+      } else {
+        alert(result.message || "Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
+    }
+  });
