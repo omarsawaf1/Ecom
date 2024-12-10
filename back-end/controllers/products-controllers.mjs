@@ -1,0 +1,43 @@
+import { product } from "../models/products-modles.mjs";
+
+export const getProductController = async (req, res) => {
+    try{
+        if (req.params.id) {
+            const { id } = req.params;
+            const result = await product.getProduct(id);
+            return res.status(200).send({success: true, result});
+        }else{
+            return res.status(400).send("id is required");
+        }
+    }catch(error){
+        console.error(error);
+        return res.status(500).send(error.message);
+    }
+};     
+export const getProductImagesController   = async (req, res) => {
+    try{
+        if (req.params.id) {
+            const { id } = req.params;
+            const result = await product.getProductImages(id);
+            return res.status(200).send({success: true, result});
+        }else{
+            return res.status(400).send("id is required");
+        }
+    }catch(error){
+        console.error(error);
+        return res.status(500).send(error.message);
+    }
+};
+export const searchProductController = async (req, res) => {
+    console.log(req.query);
+    try{    
+
+            const { name, category, page, limit } = req.query;
+            const result = await product.searchProduct(name, category, page, limit );
+            console.log(result.data);
+            return res.status(200).send({success: true, result:result.data});
+    }catch(error){
+        console.error(error);
+        return res.status(500).send(error.message);
+    }
+};

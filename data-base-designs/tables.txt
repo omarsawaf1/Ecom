@@ -17,13 +17,12 @@ CREATE TABLE user_parent (
 CREATE TABLE phone (
     user_id INT NOT NULL,
     phone VARCHAR(15),
-    FOREIGN KEY (user_id) REFERENCES user_parent(id)
+    FOREIGN KEY (user_id) REFERENCES user_parent(id) ON DELETE CASCADE
 );
 
 -- Contact Details
-CREATE TABLE contact_detail (
+CREATE TABLE user_detail (
     user_id      INT,
-    address_id   INT AUTO_INCREMENT PRIMARY KEY,
     street1      VARCHAR(255) NOT NULL,
     street2      VARCHAR(255),
     city         VARCHAR(50) NOT NULL,
@@ -32,6 +31,7 @@ CREATE TABLE contact_detail (
     zipcode      VARCHAR(20) NOT NULL,
     is_default   TINYINT DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES user_parent(id) ON DELETE CASCADE
+    
 );
 
 -- Seller Table
@@ -40,20 +40,13 @@ CREATE TABLE seller (
     description     TEXT,
     average_rating  FLOAT DEFAULT 2.5,
     rating_count    INT DEFAULT 0,
+    url            VARCHAR(255),
+    created_at     DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at     DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user_parent(id) ON DELETE CASCADE
 );
 
--- Company Table
-CREATE TABLE company (
-    company_id     INT AUTO_INCREMENT PRIMARY KEY,
-    user_id        INT NOT NULL, -- Links to seller's user_id
-    name           VARCHAR(255) NOT NULL,
-    url            VARCHAR(255),
-    description    TEXT,
-    created_at     DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at     DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES seller(user_id) ON DELETE CASCADE
-);
+
 
 -- Buyer Table
 CREATE TABLE buyer (
@@ -81,8 +74,9 @@ CREATE TABLE category (
 -- Products
 CREATE TABLE product (
     product_id      INT AUTO_INCREMENT PRIMARY KEY,
+    seller_id INT    ,
     name            VARCHAR(255) NOT NULL,
-    company_id      INT NOT NULL,
+    brand           varchar(50)  NOT NULL, 
     price           DECIMAL(10, 2) NOT NULL,
     category_id     INT,
     description     TEXT,
@@ -90,8 +84,8 @@ CREATE TABLE product (
     in_stock        TINYINT DEFAULT 1,
     average_rating  FLOAT DEFAULT 0,
     rating_count    INT DEFAULT 0,
-    FOREIGN KEY (company_id) REFERENCES company(company_id) ON DELETE CASCADE,
-    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE SET NULL
+    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE,
+    FOREIGN KEY (seller_id)  REFERENCES seller(user_id) ON DELETE CASCADE
 );
 
 -- Product Images
@@ -141,7 +135,7 @@ CREATE TABLE order_product (
 
 -- Reviews
 CREATE TABLE review (
-    review_id   INT AUTO_INCREMENT PRIMARY KEY,
+    PRIMARY KEY (product_id, user_id ),
     product_id  INT,
     user_id     INT,
     rating      FLOAT NOT NULL CHECK (rating BETWEEN 1 AND 5),
@@ -150,13 +144,8 @@ CREATE TABLE review (
     FOREIGN KEY (user_id) REFERENCES user_parent(id) ON DELETE CASCADE
 );
 
--- Review Images
-CREATE TABLE review_image (
-    review_id   INT,
-    image_url   VARCHAR(255),
-    PRIMARY KEY (review_id, image_url),
-    FOREIGN KEY (review_id) REFERENCES review(review_id) ON DELETE CASCADE
-);
+
+
 
 -- Carriers
 CREATE TABLE carriers (
@@ -176,4 +165,13 @@ CREATE TABLE shipment (
     status      VARCHAR(20) DEFAULT 'In Transit',
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (carrier_id) REFERENCES carriers(carrier_id) ON DELETE CASCADE
+);
+CREATE TABLE credit_card (
+    card_id INT AUTO_INCREMENT PRIMARY KEY,       -- Unique identifier for each credit card
+    card_number CHAR(16) NOT NULL UNIQUE,         -- 16-digit card number
+    cardholder_name VARCHAR(100) NOT NULL,        -- Name of the cardholder
+    expiry_date DATE NOT NULL,                    -- Expiry date of the card
+    cvv CHAR(3) NOT NULL,                         -- 3-digit CVV
+    user_id INT NOT NULL,                         -- Foreign key referencing user_parent(id)
+    FOREIGN KEY (user_id) REFERENCES user_parent(id) ON DELETE CASCADE
 );

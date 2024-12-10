@@ -3,6 +3,11 @@ import pool from '../config/init-data-base.mjs';
 /**
  * Inserts a parent user into the user_parent table.
  */
+const userTypeMapping = {
+    buyer: 0,
+    seller: 1,
+    admin: 2
+};
 async function insertPhone(userId,phone) {
     try{
         const result = await pool.query(
@@ -105,12 +110,22 @@ async function insertBuyer(email, fname, lname, password,phone, isPrime = 0, pri
         return { success: false, message: error.message };
     }
 }
-
-const userTypeMapping = {
-    buyer: 0,
-    seller: 1,
-    admin: 2
-};
+async function checkPassword(email,password,userType){
+    try{
+        const result = await pool.query(
+            'SELECT id FROM user_parent WHERE email = ? AND password = ? AND user_type  = ?',
+            [email, password,userType]
+        );
+        const data=result[0];
+        if(data.length === 0){
+            return {success:false, message: "Password is incorrect or Email is incorrect"};
+        }
+        return {success:true,message: "Password is correct", userId:data[0].id};
+    }catch(error){
+        console.error(error);
+        return {success:false, message: error.message};
+    }
+}
 
 // Export all under a single `user` object
 export const user = {
@@ -118,5 +133,6 @@ export const user = {
     insertAdmin,
     insertSeller,
     insertBuyer,
+    checkPassword,
     userTypeMapping
 };
