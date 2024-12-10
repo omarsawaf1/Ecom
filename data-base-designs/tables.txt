@@ -13,6 +13,13 @@ CREATE TABLE user_parent (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- User Phone Table
+CREATE TABLE phone (
+    user_id INT NOT NULL,
+    phone VARCHAR(15),
+    FOREIGN KEY (user_id) REFERENCES user_parent(id)
+);
+
 -- Contact Details
 CREATE TABLE contact_detail (
     user_id      INT,

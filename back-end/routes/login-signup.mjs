@@ -16,6 +16,7 @@ router.post('/api/login',(req,res)=>{
     res.status(200).json({accessToken:accessToken})
 })
 router.post('/api/signup',signupController)
+router.post('/api/login',)
 router.post('/test',usersVaildationScheme,(req,res)=>{
     const error=validationResult(req)
     if(!error.isEmpty()){
