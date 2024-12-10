@@ -71,24 +71,7 @@ document
     const lname = document.getElementById("lname").value;
     const password = document.getElementById("signPassword").value;
     const userType = document.getElementById("radioBtn3").checked ? 1 : 0; // 1 = seller, 0 = buyer
-
-    // Prepare additionalDetails based on userType
-    let additionalDetails = {};
-    if (userType === 0) {
-      // Buyer-specific additional details
-      additionalDetails = {
-        isPrime: 1,
-        primeExpiryDate: "2025-01-01",
-      };
-    } else if (userType === 1) {
-      // Seller-specific additional details
-      additionalDetails = {
-        description: "Experienced Seller",
-        averageRating: 4.5,
-        ratingCount: 20,
-      };
-    }
-
+    const phone=document.getElementById("phone1").value;
     // Prepare the JSON payload
     const signupData = {
       email,
@@ -96,7 +79,7 @@ document
       lname,
       password, // In production, ensure this is hashed on the backend
       userType,
-      additionalDetails,
+      phone
     };
 
     try {

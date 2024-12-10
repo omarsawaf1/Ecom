@@ -1,29 +1,20 @@
-import {  insertSeller, insertBuyer ,userTypeMapping } from '../models/users-models.mjs';
+import { user } from '../models/users-models.mjs';
 export async function signupController(req, res) {
     try {
-        const { email, fname, lname, password, userType, additionalDetails } = req.body;
-
+        const { email, fname, lname, password, userType, phone } = req.body;
         // Validate request data
-        if (!email || !fname || !password || userType === undefined) {
+        if (!email || !fname || !password || userType === undefined || !phone) {
             return res.status(400).json({ success: false, message: 'Missing required fields' });
         }
 
         let result;
         switch (userType) {
-            case userTypeMapping.buyer: // Buyer
-                result = await insertBuyer(email, fname, lname, password, additionalDetails?.isPrime, additionalDetails?.primeExpiryDate);
+            case user.userTypeMapping.buyer: // Buyer
+                result = await user.insertBuyer(email, fname, lname, password,phone,userType);
                 break;
 
-            case userTypeMapping.seller : // Seller
-                result = await insertSeller(
-                    email,
-                    fname,
-                    lname,
-                    password,
-                    additionalDetails?.description,
-                    additionalDetails?.averageRating,
-                    additionalDetails?.ratingCount
-                );
+            case user.userTypeMapping.seller : // Seller
+                result = await user.insertSeller(email, fname, lname, password,phone,userType);
                 break;
             default:
                 return res.status(400).json({ success: false, message: 'Invalid user type' });
@@ -44,3 +35,4 @@ export async function signupController(req, res) {
         return res.status(500).json({ success: false, message: 'Internal server error' });
     }
 }
+

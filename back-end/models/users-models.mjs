@@ -1,15 +1,32 @@
-import pool from '../config/init-data-base.mjs'
+import pool from '../config/init-data-base.mjs';
+
 /**
  * Inserts a parent user into the user_parent table.
  */
-export async function insertParentUser(email, fname, lname, password, userType) {
+async function insertPhone(userId,phone) {
+    try{
+        const result = await pool.query(
+            'INSERT INTO phone (user_id, phone) VALUES (?, ?)',
+            [userId, phone]
+        )
+    }catch{
+        console.error(error);
+        return {success:false, message: error.message};
+    }
+}
+async function insertParentUser(email, fname, lname, password,phone,userType) {
     try {
         const result = await pool.query(
             'INSERT INTO user_parent (email, fname, lname, password, user_type) VALUES (?, ?, ?, ?, ?)',
             [email, fname, lname, password, userType]
         );
-        console.log(result);
+
+        if (!result[0].insertId) throw new Error("Failed to retrieve the inserted user ID");
+
+        const phoneresult = await insertPhone(result[0].insertId,phone);
+
         return { success: true, message: 'Parent user inserted successfully', userId: result[0].insertId };
+
     } catch (error) {
         console.error(error);
         return { success: false, message: error.message };
@@ -19,7 +36,7 @@ export async function insertParentUser(email, fname, lname, password, userType) 
 /**
  * Inserts an admin user into the admin table.
  */
-export async function insertAdmin(email, fname, lname, password, role = 'superadmin') {
+async function insertAdmin(email, fname, lname, password, role = 'superadmin') {
     try {
         // Step 1: Insert into user_parent
         const parentUser = await insertParentUser(email, fname, lname, password, 2); // 2 for admin
@@ -43,10 +60,10 @@ export async function insertAdmin(email, fname, lname, password, role = 'superad
 /**
  * Inserts a seller into the seller table.
  */
-export async function insertSeller(email, fname, lname, password, description = '', averageRating = 2.5, ratingCount = 0) {
+async function insertSeller(email, fname, lname, password,phone, description = '', averageRating = 2.5, ratingCount = 0) {
     try {
         // Step 1: Insert into user_parent
-        const parentUser = await insertParentUser(email, fname, lname, password, 1); // 1 for seller
+        const parentUser = await insertParentUser(email, fname, lname, password,phone, 1); // 1 for seller
         if (!parentUser.success) return parentUser; // Return error if insertion failed
 
         const userId = parentUser.userId;
@@ -67,14 +84,15 @@ export async function insertSeller(email, fname, lname, password, description = 
 /**
  * Inserts a buyer into the buyer table.
  */
-export async function insertBuyer(email, fname, lname, password, isPrime = 0, primeExpiryDate = null) {
+async function insertBuyer(email, fname, lname, password,phone, isPrime = 0, primeExpiryDate = null) {
     try {
         // Step 1: Insert into user_parent
-        const parentUser = await insertParentUser(email, fname, lname, password, 0); // 0 for buyer
+        const parentUser = await insertParentUser(email, fname, lname, password,phone, 0); // 0 for buyer
         if (!parentUser.success) return parentUser; // Return error if insertion failed
 
         const userId = parentUser.userId;
-        console.log(`userId: ${userId}`,parentUser);
+        console.log(`userId: ${userId}`, parentUser);
+
         // Step 2: Insert into buyer table
         await pool.query(
             'INSERT INTO buyer (user_id, is_prime, prime_expiry_date) VALUES (?, ?, ?)',
@@ -87,8 +105,18 @@ export async function insertBuyer(email, fname, lname, password, isPrime = 0, pr
         return { success: false, message: error.message };
     }
 }
-export const userTypeMapping = {
+
+const userTypeMapping = {
     buyer: 0,
     seller: 1,
     admin: 2
+};
+
+// Export all under a single `user` object
+export const user = {
+    insertParentUser,
+    insertAdmin,
+    insertSeller,
+    insertBuyer,
+    userTypeMapping
 };

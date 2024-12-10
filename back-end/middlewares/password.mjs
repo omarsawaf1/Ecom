@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
 import {data} from "../shared-resources/data.mjs"
+import {user} from '../models/users-models.mjs'
 export const hashPassword= async function (request,response, next) {
   try{
       console.log('hi i am here fix the bug please')
