@@ -6,7 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import staticFilesRouter from './routes/static-files.mjs'
 import pagesRouter from './routes/pages.mjs'
-import usersRouter from './routes/users.mjs'
+import buyersRouter from './routes/buyers.mjs'
 import loginSignup from './routes/login-signup.mjs'
 import productsRouter from './routes/products.mjs'
 // dirname, filename is not supported in ES module
@@ -20,7 +20,8 @@ dotenv.config()
 app.use(express.json());
 
 // routes
-app.use(usersRouter)
+// app.use(usersRouter)
+app.use(buyersRouter)
 app.use(pagesRouter)
 app.use(staticFilesRouter)
 app.use(loginSignup)
