@@ -37,4 +37,12 @@ router.get('/cart', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '../../front-end/html/cart.html'));
 })
 
+router.get('/checkout', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/checkout.html'));
+})
+
+router.get('seller', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, '../../front-end/html/seller.html'));
+})
+
 export default router
