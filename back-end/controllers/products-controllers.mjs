@@ -30,7 +30,8 @@ export const getProductImagesController   = async (req, res) => {
 };
 export const searchProductController = async (req, res) => {
     try{    
-            const { name, category, page, limit } = req.query;
+            const { name, category, page} = req.query;
+            const limit=Number(req.query.limit);
             const result = await product.searchProduct(name, category, page, limit );
             return res.status(200).send({success: true, result:result.data});
     }catch(error){

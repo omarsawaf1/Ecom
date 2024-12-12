@@ -61,8 +61,9 @@ async function insertProductImage(productId, imageUrl) {
         return { success: false, message: error.message };
     }
 }
-async function searchProduct(name, category, page = 1, limit = 10) {
+async function searchProduct(name, category, page = 1, limit = 5) {
     try {
+        
         // Calculate the offset for pagination
         const offset = (page - 1) * limit;
 
