@@ -9,6 +9,7 @@ import pagesRouter from './routes/pages.mjs'
 import buyersRouter from './routes/buyers.mjs'
 import loginSignup from './routes/login-signup.mjs'
 import productsRouter from './routes/products.mjs'
+import sellersRouter from './routes/seller.mjs'
 // dirname, filename is not supported in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +27,7 @@ app.use(pagesRouter)
 app.use(staticFilesRouter)
 app.use(loginSignup)
 app.use(productsRouter);
-
+app.use(sellersRouter)
 
 
 
