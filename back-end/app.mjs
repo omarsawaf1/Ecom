@@ -22,12 +22,12 @@ app.use(express.json());
 
 // routes
 // app.use(usersRouter)
-app.use(buyersRouter)
-app.use(pagesRouter)
-app.use(staticFilesRouter)
-app.use(loginSignup)
+app.use(buyersRouter);
+app.use(pagesRouter);
+app.use(staticFilesRouter);
+app.use(loginSignup);
 app.use(productsRouter);
-app.use(sellersRouter)
+app.use(sellersRouter);
 
 
 

@@ -36,7 +36,21 @@ async function getSellerProducts(userId){
         return { success: false, message: 'Server error' };
     }
 }
+async function insertSellerProduct(seller_id, name, brand, price, category_id, description, available_units, in_stock = 1) {
+    try {
+        const [result] = await pool.query(
+            'INSERT INTO product (seller_id, name, brand, price, category_id, description, available_units, in_stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [seller_id, name, brand, price, category_id, description, available_units, in_stock]
+        );
+
+        return { success: true, message: 'Product inserted successfully', productId: result.insertId };
+    } catch (error) {
+        console.error('Error inserting product:', error);
+        return { success: false, message: error.message };
+    }
+}
 export const seller = { 
     getSellerInfo,
     getSellerProducts
+    ,insertSellerProduct
 };
