@@ -1,29 +1,99 @@
 const goToLogin = document.querySelector(".login-btn");
 
 goToLogin.addEventListener("click", () => (window.location.href = "login"));
+
 // test
-document.querySelectorAll(".shop-item-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    const item = {
-      id: button.dataset.id, // Assuming each button has a data-id attribute
-      name: button.dataset.name,
-      price: button.dataset.price,
-      image: button.dataset.image,
-      quantity: 1, // Default to 1
-    };
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.querySelector(".searchInput");
+  const shopItemContainer = document.getElementById("shop-item-container");
 
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+  // Function to fetch and display products based on the search query
+  const searchProducts = async (query) => {
+    try {
+      const response = await fetch(`/api/products/search?name=${query}`);
+      const data = await response.json();
 
-    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
-
-    if (existingItem) {
-      existingItem.quantity += 1; // Increase quantity if item exists
-    } else {
-      cart.push(item); // Add new item
+      if (data.success) {
+        displayProducts(data.result); // Display the search results
+      } else {
+        console.error("Error fetching search results:", data.message);
+        shopItemContainer.innerHTML =
+          "<p class='no-results'>No products found.</p>";
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      shopItemContainer.innerHTML =
+        "<p class='error-message'>An error occurred while fetching products.</p>";
     }
+  };
 
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${item.name} added to cart!`);
+  // Function to display products
+  const displayProducts = async (products) => {
+    shopItemContainer.innerHTML = ""; // Clear previous results
+    for (const product of products) {
+      // Fetch image data for each product
+      const imageData = await displayImage(product);
+
+      // Construct product HTML
+      const productHTML = `
+        <div class="shop-item">
+          <span class="shop-item-title">Product: ${product.name} <br> Brand: ${
+        product.brand || "N/A"
+      }</span>
+          <img class="shop-item-image" src="${
+            imageData[0].image_url || "../pictures/default.jpg"
+          }" alt="${product.name}" />
+          <div class="shop-item-details">
+            <span class="shop-item-description">${product.description}</span>
+            <span class="shop-item-price">${product.price} EGP</span>
+            <button
+              data-id="${product.product_id}"
+              data-name="${product.name}"
+              data-price="${product.price}"
+              data-image="${imageData[0].image_url}"
+              class="btn btn-primary shop-item-button"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Append the product to the container
+      shopItemContainer.innerHTML += productHTML;
+    }
+  };
+  async function displayImage(product) {
+    try {
+      const response = await fetch(
+        `/api/products/images/${product.product_id}`
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        return data.result; // Return image data
+      } else {
+        console.error("Error fetching images:", data.message);
+        alert("Failed to fetch images.");
+        return null; // Return null on failure
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("An error occurred while fetching images.");
+      return null; // Return null on error
+    }
+  }
+
+  // Add an event listener for the search bar
+  searchInput.addEventListener("input", (event) => {
+    const query = event.target.value.trim(); // Get the search query
+
+    if (query.length > 0) {
+      searchProducts(query); // Fetch products if query is not empty
+    } else {
+      location.reload();
+      searchInput.focus();
+    }
   });
 });
-console.log(sessionStorage);

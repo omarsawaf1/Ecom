@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <img class="cart-item-image" src="${item.image}" width="100" height="100">
           <span class="cart-item-title">${item.name}</span>
       </div>
-      <span class="cart-price cart-column">${item.price}</span>
+      <span class="cart-price cart-column">${item.price} EGP</span>
       <div class="cart-quantity cart-column">
           <input class="cart-quantity-input" type="number" value="${item.quantity}">
           <button class="btn btn-danger" type="button">REMOVE</button>

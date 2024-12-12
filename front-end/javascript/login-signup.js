@@ -71,7 +71,7 @@ document
     const lname = document.getElementById("lname").value;
     const password = document.getElementById("signPassword").value;
     const userType = document.getElementById("radioBtn3").checked ? 1 : 0; // 1 = seller, 0 = buyer
-    const phone=document.getElementById("phone1").value;
+    const phone = document.getElementById("phone1").value;
     // Prepare the JSON payload
     const signupData = {
       email,
@@ -79,7 +79,7 @@ document
       lname,
       password, // In production, ensure this is hashed on the backend
       userType,
-      phone
+      phone,
     };
 
     try {
@@ -138,6 +138,8 @@ document
 
       if (response.ok && result.success) {
         alert("Login successful!");
+        // added id to sessionstorage
+        sessionStorage.setItem("id", result.id);
         if (loginData.userType === 1) {
           window.location.href = "/seller"; // Redirect to seller page
         } else {

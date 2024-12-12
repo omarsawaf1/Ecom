@@ -221,19 +221,6 @@ a:hover {
   }
 }
 
-/* supermarket */
-.pic {
-  padding: 20px;
-  margin: 8px;
-  max-width: 200px;
-  max-height: 200px;
-  border: 10px solid #dee2e6;
-}
-.text {
-  padding-left: 20px;
-  margin: 0px;
-}
-
 /* aboutus */
 
 /* body {
@@ -306,4 +293,84 @@ html {
     width: 100%;
     display: block;
   }
+}
+/* Style for the shop-item container */
+.shop-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style for individual product items */
+.shop-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.shop-item:hover {
+  transform: scale(1.05);
+}
+
+/* Product title */
+.shop-item-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Product image */
+.shop-item-image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product price */
+.shop-item-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Add to Cart button */
+.shop-item-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.shop-item-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for Load More button */
+.load-more-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.load-more-btn:hover {
+  background-color: #218838;
 }

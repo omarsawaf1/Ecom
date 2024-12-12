@@ -41,28 +41,28 @@
         </div>
       </div>
       <div class="navBottom">
-        <a class="menuItems" href="supermarket">Supermarket</a>
-        <a class="menuItems" href="clothes">Clothes</a>
-        <a class="menuItems" href="electronics">Electronics</a>
+        <a class="menuItems" data-category-id="1" href="supermarket"
+          >Supermarket</a
+        >
+        <a class="menuItems" data-category-id="3" href="electronics"
+          >Electronics</a
+        >
+        <a class="menuItems" data-category-id="2" href="clothes">Clothes</a>
         <a class="menuItems" href="cart">Shopping cart</a>
       </div>
     </nav>
-    <div class="shop-item">
-      <span class="shop-item-title">Coffee Cup</span>
-      <img class="shop-item-image pic" src="../pictures/headset.jpg" />
-      <div class="shop-item-details">
-        <span class="shop-item-price">6.99</span>
-        <button
-          data-id="1"
-          data-name="headset"
-          data-price="6.99"
-          data-image="../pictures/headset.jpg"
-          class="btn btn-primary shop-item-button"
-          type="button"
-        >
-          ADD TO CART
-        </button>
-      </div>
+    <div class="container">
+      <h2 class="header">Check out our amazing products :</h2>
+      <h2 class="header">
+        Click the above menu to see products from each category
+      </h2>
+    </div>
+    <div class="shop-item-container" id="shop-item-container">
+      <!-- Products will be dynamically loaded here -->
+    </div>
+
+    <div class="load-more-container">
+      <button class="load-more-btn" id="load-more-btn">Load More</button>
     </div>
     <!-- footer -->
     <div class="footer">
@@ -118,6 +118,7 @@
         </div>
       </div>
     </div>
-    <script src="../javascript/scripts.js"></script>
+    <script src="/javascript/supermarket.js"></script>
+    <script src="/javascript/scripts.js"></script>
   </body>
 </html>
