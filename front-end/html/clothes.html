@@ -37,16 +37,20 @@
         </div>
       </div>
       <div class="navBottom">
+        <a class="menuItems" href="deals">Deals</a>
         <a class="menuItems" href="supermarket">Supermarket</a>
         <a class="menuItems" href="clothes">Clothes</a>
         <a class="menuItems" href="electronics">Electronics</a>
+        <a class="menuItems" href="cart">Shopping cart</a>
       </div>
     </nav>
-    <img class="pic" src="../pictures/bag.jpg" />
-    <img class="pic" src="../pictures/shirt2.jpg" />
-    <img class="pic" src="../pictures/hodie.jpg" />
-    <img class="pic" src="../pictures/pants1.jpg" />
-    <img class="pic" src="../pictures/pants2.jpg" />
+    <div class="shop-item-container" id="shop-item-container">
+      <!-- Products will be dynamically loaded here -->
+    </div>
+
+    <div class="load-more-container">
+      <button class="load-more-btn" id="load-more-btn">Load More</button>
+    </div>
     <div class="footer">
       <div class="footer-row">
         <div class="footer-col">
@@ -95,5 +99,11 @@
             <i class="fa-brands fa-github"></i>
           </div>
           <div class="footer-col">
-            <h4> 
-
+            <h4></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascript/clothes.js"></script>
+  </body>
+</html>

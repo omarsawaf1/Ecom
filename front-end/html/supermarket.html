@@ -8,7 +8,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- <link rel="stylesheet" href="/css/buying.css" /> -->
   </head>
   <body class="body1">
     <nav>
@@ -37,48 +38,21 @@
         </div>
       </div>
       <div class="navBottom">
+        <a class="menuItems" href="deals">Deals</a>
         <a class="menuItems" href="supermarket">Supermarket</a>
         <a class="menuItems" href="clothes">Clothes</a>
         <a class="menuItems" href="electronics">Electronics</a>
+        <a class="menuItems" href="cart">Shopping cart</a>
       </div>
     </nav>
-    <div>
-      <div class="item">
-        <img class="pic" src="../pictures/honey.jpg" />
-        <div class="text">
-          <p>56 EGP</p>
-          <p>emtnan honey</p>
-        </div>
-      </div>
-      <div class="item">
-        <img class="pic" src="../pictures/jam.jpg" />
-        <div class="text">
-          <p>42EGP</p>
-          <p>vitrac jam</p>
-        </div>
-      </div>
-      <div class="item">
-        <img class="pic" src="../pictures/oil.jpg" />
-        <div class="text">
-          <p>60 EGP</p>
-          <p>crystal oil 40EGP</p>
-        </div>
-      </div>
-      <div class="item">
-        <img class="pic" src="../pictures/paper_towel.jpg" />
-        <div class="text">
-          <p>30 EGP</p>
-          <p>Famila paper towel</p>
-        </div>
-      </div>
-      <div class="item">
-        <img class="pic" src="../pictures/oxi.jpg" />
-        <div>
-          <p>80 EGP</p>
-          <p>oxi detergent</p>
-        </div>
-      </div>
+    <div class="shop-item-container" id="shop-item-container">
+      <!-- Products will be dynamically loaded here -->
     </div>
+
+    <div class="load-more-container">
+      <button class="load-more-btn" id="load-more-btn">Load More</button>
+    </div>
+
     <div class="footer">
       <div class="footer-row">
         <div class="footer-col">
@@ -132,7 +106,6 @@
         </div>
       </div>
     </div>
-    <script src="../javascript/scripts.js"></script>
+    <script src="/javascript/supermarket.js"></script>
   </body>
 </html>
-
