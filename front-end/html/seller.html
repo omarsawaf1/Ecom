@@ -1,14 +1,162 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>About us page</title>
+    <title>Seller</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../css/seller.css" />
   </head>
-  <body></body>
+  <body class="body1">
+    <nav>
+      <div class="navTop">
+        <div class="logo">
+          <a href="/" class="logo">
+            <img src="../pictures/souq_background.png" alt="" width="70px" />
+          </a>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="Search souq.com" class="searchInput" />
+          <img
+            src="../pictures/search2.png"
+            width="30"
+            height="25"
+            alt=""
+            class="searchIcon"
+          />
+        </div>
+        <div class="navItem">
+          <button class="login-btn">LOG IN</button>
+        </div>
+      </div>
+      <div class="navBottom">
+        <a class="menuItems" href="supermarket">Supermarket</a>
+        <a class="menuItems" href="clothes">Clothes</a>
+        <a class="menuItems" href="electronics">Electronics</a>
+      </div>
+    </nav>
+    <div class="container" style="background-color: rgb(239, 248, 248);">
+      <h1 style="text-align: center;">MY PRODUCTS</h1>
+      <h2 style="text-align: center;">ADD PRODUCTS</h2>
+      <form id="sellerForm">
+        <div class="row">
+          <div class="col-25">
+            <label for="productName">PRODUCT NAME</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="productName" placeholder="Enter Product name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="brand">BRAND NAME</label>
+          </div>
+          <div class="col-25">
+            <input type="text" id="brand" placeholder="Enter Brand name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="price">PRICE</label>
+          </div>
+          <div class="col-25">
+            <input type="number" min="0" id="price" placeholder="Enter price" />$
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="units">QUANTITY</label>
+          </div>
+          <div class="col-25">
+            <input type="number" min="0" id="units" placeholder="Enter Quantity" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="category_id">CATEGORY</label>
+          </div>
+          <div class="col-25">
+            <select id="category_id" name="category">
+              <option value="2">Electronics</option>
+              <option value="1">Supermarket</option>
+              <option value="3">Clothes</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="description">PRODUCT DESCRIPTION</label>
+          </div>
+          <div class="col-75">
+            <textarea id="description" name="subject" placeholder="Write something.." style="height:50px"></textarea>
+          </div>
+        </div>
+        <div>
+          <input type="submit" id="submit" value="Upload to my products" style="width: 100%; height: 50px;" />
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul class="links">
+            <li><a href="aboutus">About Us</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Collection</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="links">
+            <li><a href="supermarket">Supermarket</a></li>
+            <li><a href="clothes">Clothes</a></li>
+            <li><a href="electronics">Electronics</a></li>
+            <li><a href="#">Popular Designs</a></li>
+            <li><a href="#">New Uploads</a></li>
+            <li><a href="#">Art Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Let us Help You</h4>
+          <ul class="links">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">shipping & Delivery</a></li>
+            <li><a href="#">Returns & Replacment</a></li>
+            <li><a href="#">Souq.com App download</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>
+            Subscribe to our newsletter for a weekly dose of news, updates,
+            helpful tips, and exclusive offers.
+          </p>
+          <form action="#">
+            <input type="text" placeholder="Your email" required />
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <div class="icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="footer-col">
+            <h4>© 2024 Made by Omar Mohamed. All Rights Reserved</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/javascript/seller.js"></script>
+    <script src="/javascript/scripts.js"></script>
+  </body>
 </html>
