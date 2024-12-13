@@ -1,0 +1,79 @@
+-- 1. Query to get the shipment details along with carrier information:
+SELECT 
+    shipment.shipment_id,
+    shipment.order_id,
+    shipment.tracking_number,
+    shipment.status AS shipment_status,
+    carriers.name AS carrier_name,
+    carriers.email AS carrier_email,
+    carriers.phone AS carrier_phone
+FROM 
+    shipment
+JOIN 
+    carriers ON shipment.carrier_id = carriers.carrier_id;
+
+-- 2.Query to count how many shipments each carrier is handling
+SELECT 
+    carriers.name AS carrier_name,
+    COUNT(shipment.shipment_id) AS total_shipments
+FROM 
+    carriers
+LEFT JOIN 
+    shipment ON carriers.carrier_id = shipment.carrier_id
+GROUP BY 
+    carriers.carrier_id
+ORDER BY 
+    total_shipments DESC;
+--  3. most bought items query
+SELECT 
+    p.name AS product_name,
+    COUNT(op.order_id) AS total_orders
+FROM 
+    product p
+JOIN 
+    order_product op ON p.product_id = op.product_id
+GROUP BY 
+    p.product_id
+ORDER BY 
+    total_orders DESC
+LIMIT 5;
+-- 4.  query to get all products in category that have more 4 stars
+SELECT 
+    p.name AS product_name,
+    p.price,
+    p.average_rating,
+    c.name AS category_name
+FROM 
+    product p
+JOIN 
+    category c ON p.category_id = c.category_id
+WHERE 
+    c.name IN ('Electronics', 'Clothing') 
+    AND p.average_rating > 4.0
+ORDER BY 
+    p.average_rating DESC;
+
+-- 5. a query to return best products in all categorirs and their price
+SELECT 
+    c.name AS category_name,
+    p.name AS product_name,
+    p.price,
+    (SELECT SUM(op.quantity) 
+     FROM order_product op 
+     WHERE op.product_id = p.product_id) AS total_quantity_sold
+FROM 
+    category c
+JOIN 
+    product p ON c.category_id = p.category_id
+WHERE 
+    p.product_id = (
+        SELECT op.product_id
+        FROM order_product op
+        JOIN product p2 ON op.product_id = p2.product_id
+        WHERE p2.category_id = c.category_id
+        GROUP BY op.product_id
+        ORDER BY SUM(op.quantity) DESC
+        LIMIT 1
+    )
+ORDER BY 
+    total_quantity_sold DESC;
