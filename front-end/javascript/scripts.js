@@ -2,7 +2,7 @@ const goToLogin = document.querySelector(".login-btn");
 
 goToLogin.addEventListener("click", () => (window.location.href = "login"));
 
-// test
+// test search
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(".searchInput");
   const shopItemContainer = document.getElementById("shop-item-container");
