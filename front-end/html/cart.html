@@ -50,29 +50,8 @@
       </div>
     </nav>
 
-    <!-- <div class="shop-item">
-      <span class="shop-item-title">Coffee Cup</span>
-      <img class="shop-item-image pic" src="../pictures/h.jpg" />
-      <div class="shop-item-details">
-        <span class="shop-item-price">6.99</span>
-        <button class="btn btn-primary shop-item-button" type="button">
-          ADD TO CART
-        </button>
-      </div>
-    </div> -->
     <main>
       <div class="basket">
-        <!-- <div class="basket-module">
-          <label for="promo-code">Enter a promotional code</label>
-          <input
-            id="promo-code"
-            type="text"
-            name="promo-code"
-            maxlength="5"
-            class="promo-code-field"
-          />
-          <button class="promo-code-cta">Apply</button>
-        </div> -->
         <div class="basket-labels">
           <ul>
             <li name="lis" class="item item-heading">Item</li>
@@ -83,61 +62,6 @@
         </div>
         <div class="basket-product">
           <div class="cart-items item"></div>
-          <!--  <div class="item">
-            <div class="product-image">
-              <img
-                src="../pictures/honey.jpg"
-                alt="Placholder Image 2"
-                class="product-frame"
-              />
-            </div>
-            <div class="product-details">
-              <h1>
-                <strong
-                  ><span class="item-quantity">4</span> x Emtnan honey</strong
-                >
-              </h1>
-              <p><strong>Weight 200g</strong></p>
-              <p>Product Code - 232321939</p>
-            </div>
-          </div>
-          <div class="price">26</div>
-          <div class="quantity">
-            <input type="number" value="4" min="1" class="quantity-field" />
-          </div>
-          <div class="subtotal">104</div>
-          <div class="remove">
-            <button>Remove</button>
-          </div>
-        </div>
-        <div class="basket-product">
-          <div class="item">
-            <div class="product-image">
-              <img
-                src="../pictures/phone2.jpg"
-                alt="Placholder Image 2"
-                class="product-frame"
-              />
-            </div>
-            <div class="product-details">
-              <h1>
-                <strong
-                  ><span class="item-quantity">1</span> x Xiaomi phone</strong
-                >
-                8gb ram 256gb storage
-              </h1>
-              <p><strong>Color Blue</strong></p>
-              <p>Product Code - 232321939</p>
-            </div>
-          </div>
-          <div class="price">10000</div>
-          <div class="quantity">
-            <input type="number" value="1" min="1" class="quantity-field" />
-          </div>
-          <div class="subtotal">10000</div>
-          <div class="remove">
-            <button>Remove</button>
-          </div> -->
         </div>
       </div>
       <aside>
@@ -153,28 +77,26 @@
             >
               0
             </div>
-            <!-- <div class="summary-promo hide">
-              <div class="promo-title">Promotion</div>
-              <div class="promo-value final-value" id="basket-promo"></div>
-            </div> -->
           </div>
           <div class="summary-delivery">
             <select
               name="delivery-collection"
               class="summary-delivery-selection"
+              required
             >
-              <option value="0" selected="selected">
-                Select Collection or Delivery
-              </option>
               <option value="collection">Pick up from one of our Shops</option>
               <option value="first-class">DHL Shipping</option>
               <option value="second-class">UPS Shipping</option>
               <option value="signed-for">SOUQ.COM Shipping</option>
             </select>
           </div>
+          <div class="summary-shipping">
+            <div class="shipping">Shipping</div>
+            <div class="total-value shipping-value">0 EGP</div>
+          </div>
           <div class="summary-total">
             <div class="total-title">Total</div>
-            <div class="total-value final-value" id="basket-total">0</div>
+            <div class="total-value final-value" id="basket-total">0 EGP</div>
           </div>
           <div class="summary-checkout">
             <button
@@ -231,7 +153,7 @@
         </div>
       </div>
     </div>
-    <script src="../javascript/cart.js"></script>
-    <script src="../javascript/scripts.js"></script>
+    <script src="/javascript/cart.js"></script>
+    <script src="/javascript/scripts.js"></script>
   </body>
 </html>

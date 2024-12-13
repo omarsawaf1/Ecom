@@ -139,7 +139,7 @@ document
       if (response.ok && result.success) {
         alert("Login successful!");
         // added id to sessionstorage
-        sessionStorage.setItem("id", result.id);
+        sessionStorage.setItem("userId", result.id);
         if (loginData.userType === 1) {
           window.location.href = "/seller"; // Redirect to seller page
         } else {

@@ -55,6 +55,9 @@ async function displayProducts(products) {
         <div class="shop-item-details">
           <span class="shop-item-description">${product.description}</span>
           <span class="shop-item-price">${product.price} EGP</span>
+          <p>Rating: ${product.average_rating} ★ (${
+      product.rating_count
+    } reviews)</p>
           <button
             data-id="${product.product_id}"
             data-name="${product.name}"
@@ -104,7 +107,7 @@ function addToCart() {
   document.querySelectorAll(".shop-item-button").forEach((button) => {
     button.addEventListener("click", () => {
       const item = {
-        id: button.dataset.id,
+        product_id: button.dataset.id,
         name: button.dataset.name,
         price: button.dataset.price,
         image: button.dataset.image,
@@ -113,7 +116,9 @@ function addToCart() {
 
       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-      const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+      const existingItem = cart.find(
+        (cartItem) => cartItem.product_id === item.product_id
+      );
 
       if (existingItem) {
         existingItem.quantity += 1; // Increase quantity if item exists

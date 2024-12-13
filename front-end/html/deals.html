@@ -8,18 +8,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body class="body1">
     <nav>
       <div class="navTop">
         <div class="logo">
           <a href="/" class="logo">
-            <img
-              src="../pictures/souq_background.png"
-              alt="logo"
-              width="70px"
-            />
+            <img src="/pictures/souq_background.png" alt="logo" width="70px" />
           </a>
         </div>
         <div class="search">
@@ -29,7 +25,7 @@
             class="searchInput"
           />
           <img
-            src="../pictures/search2.png"
+            src="/pictures/search2.png"
             width="30"
             height="25"
             alt=""
@@ -52,17 +48,14 @@
       </div>
     </nav>
     <div class="container">
-      <h2 class="header">Check out our amazing products :</h2>
-      <h2 class="header">
-        Click the above menu to see products from each category
-      </h2>
-    </div>
-    <div class="shop-item-container" id="shop-item-container">
-      <!-- Products will be dynamically loaded here -->
-    </div>
-
-    <div class="load-more-container">
-      <button class="load-more-btn" id="load-more-btn">Load More</button>
+      <header>
+        <h1>Today's Deals From our shop - Don't Miss Out!</h1>
+      </header>
+      <main>
+        <section id="deals-container" class="shop-item-container">
+          <!-- Deals will be dynamically loaded here -->
+        </section>
+      </main>
     </div>
     <!-- footer -->
     <div class="footer">
@@ -118,7 +111,7 @@
         </div>
       </div>
     </div>
-    <script src="/javascript/supermarket.js"></script>
+    <script src="/javascript/deals.js"></script>
     <script src="/javascript/scripts.js"></script>
   </body>
 </html>

@@ -1,51 +1,91 @@
+const userId = sessionStorage.getItem("userId");
+console.log(`user id : ${userId}`);
+if (userId === null) {
+  alert("You are not logged in.");
+  window.location.href = "login";
+}
 document
   .getElementById("checkout-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent form submission
 
     // Collect Billing Info
-    const billingInfo = {
-      fullName: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      address: document.getElementById("address").value,
+    const additionalDetails = {
+      street1: document.getElementById("street").value,
       city: document.getElementById("city").value,
-      postalCode: document.getElementById("postal-code").value,
+      state: document.getElementById("state").value,
+      country: document.getElementById("country").value,
+      zipcode: document.getElementById("zip").value,
     };
 
     // Collect Card Info
     const cardInfo = {
-      cardName: document.getElementById("card-name").value,
-      cardNumber: document.getElementById("card-number").value,
-      expiryMonth: document.getElementById("expiry-month").value,
-      expiryYear: document.getElementById("expiry-year").value,
+      cardNumber: document.getElementById("cardNumber").value,
+      cardHolderName: document.getElementById("cardName").value,
+      expiryDate: document.getElementById("cardExpiry").value,
       cvv: document.getElementById("cvv").value,
     };
 
     // Collect Cart Items from Session Storage
     const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
+    console.log(cartItems);
 
-    // Combine Data into One Payload (object)
-    const orderData = {
-      billingInfo,
-      cardInfo,
-      cartItems,
+    if (cartItems.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
+    // Calculate total price
+    // const totalPrice = JSON.parse(sessionStorage.getItem("total")) || [];
+
+    // Create an order object
+    const order = {
+      productOrders: cartItems.map((item) => ({
+        product_id: parseInt(item.product_id, 10),
+        quantity: item.quantity,
+      })),
     };
+
+    console.log("Order Object:", order);
 
     try {
       // Send Data to Backend
-      const response = await fetch("https://httpbin.org/post", {
+      const responseDetails = await fetch(
+        `api/buyers/${userId}/additional-details/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(additionalDetails),
+        }
+      );
+
+      const responseCard = await fetch(`api/buyers/${userId}/credit-card/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(orderData),
+        body: JSON.stringify(cardInfo),
       });
 
-      if (response.ok) {
-        const result = await response.json();
+      const responseOrder = await fetch(`api/buyers/${userId}/orders/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      });
+
+      if (responseDetails.ok && responseCard.ok && responseOrder.ok) {
+        const resultDetails = await responseDetails.json();
+        const resultCard = await responseCard.json();
+        const resultOrder = await responseOrder.json();
+        console.log("Order Result:", resultOrder);
+
         alert("Order placed successfully!");
         sessionStorage.removeItem("cart"); // Clear cart after successful order
-        window.location.href = "../order/order.html"; // Redirect to order page
+        window.location.href = "buyer"; // Redirect to order page
       } else {
         alert("Failed to place the order. Please try again.");
       }
