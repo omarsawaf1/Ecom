@@ -35,7 +35,7 @@ function ready() {
 //   updateCartTotal();
 // }
 function purchaseClicked() {
-  alert("Thank you for your purchase");
+  // alert("Thank you for your purchase");
   // a empty div to add html in it by javascript dom (1)
   let cartItems = document.getElementsByClassName("cart-items")[0];
   while (cartItems.hasChildNodes()) {

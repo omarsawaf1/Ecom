@@ -37,8 +37,14 @@ async function fetchDeals() {
               <div class="product-info">
                 <h3>${product.name}</h3>
                 <p>Brand: ${product.brand}</p>
-                <p>Original Price: <s>$${product.price}</s></p>
-                <p>Sale Price: $${discountedPrice}</p>
+                <span class="shop-item-description">${
+                  product.description
+                }</span>
+                <p>Original Price: <s>${product.price} EGP</s></p>
+                <p>Sale Price: ${discountedPrice} EGP</p>
+                <p>Rating: ${product.average_rating} ★ (${
+            product.rating_count
+          } reviews)</p>
               </div>
             </div>
           `;
