@@ -27,7 +27,7 @@ sellerForm.addEventListener("submit", async (event) => {
     brand: brand.value,
     available_units: available_units.value,
     price: price.value,
-    category: category.value,
+    category_id: category.value,
     description: description.value
   };
 

@@ -41,17 +41,21 @@ async function displayProducts(products) {
   // Use a for...of loop to handle asynchronous calls
   for (const product of products) {
     // Fetch image data for each product
-    const imageData = await displayImage(product);
-
+    let imageData = await displayImage(product);
+    //handling errors of null
+    if(!imageData){
+      imageData=[{image_url:"../pictures/default.jpeg"}];
+    }
     // Construct product HTML
     const productHTML = `
       <div class="shop-item">
         <span class="shop-item-title">Product: ${product.name} <br> Brand: ${
       product.brand || "N/A"
     }</span>
-        <img class="shop-item-image" src="${
-          imageData[0].image_url || "../pictures/default.jpg"
-        }" alt="${product.name}" />
+          <img class="shop-item-image" src="${
+            //imageData[0] is ? to handle if there
+            imageData[0]?.image_url.trim()
+          }" alt="${product.name}" />
         <div class="shop-item-details">
           <span class="shop-item-description">${product.description}</span>
           <span class="shop-item-price">${product.price} EGP</span>
@@ -62,7 +66,7 @@ async function displayProducts(products) {
             data-id="${product.product_id}"
             data-name="${product.name}"
             data-price="${product.price}"
-            data-image="${imageData[0].image_url}"
+            data-image="${imageData[0].image_url.trim()}"
             class="btn btn-primary shop-item-button"
             type="button"
           >
@@ -88,12 +92,10 @@ async function displayImage(product) {
       return data.result; // Return image data
     } else {
       console.error("Error fetching images:", data.message);
-      alert("Failed to fetch images.");
       return null; // Return null on failure
     }
   } catch (error) {
     console.error("Fetch error:", error);
-    alert("An error occurred while fetching images.");
     return null; // Return null on error
   }
 }
