@@ -9,7 +9,7 @@ async function getSellerinfo(req, res) {
         return res.status(200).send({success: true, result});    
     } catch (error) {
         console.error(error);
-        return res.status(500).send(error.message);
+        return res.status(500).send({success: false, message: error.message});
     }
 }
 async function getSellerProducts(req, res) {
@@ -33,6 +33,7 @@ async function insertSellerProduct(req, res) {
         if (!result.success) {
             return res.status(404).send({ success: false, message: 'Additional details not found or could not be inserted' });
         }
+        console.log(result);
         return res.status(201).send({success: true, result});
     } catch (error) {
         console.error(error);

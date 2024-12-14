@@ -57,7 +57,6 @@ async function insertBuyerCreditCard(req,res) {
 async function insertBuyerAdditionalDetails(req,res) {
     try {
         const userID = req.params.id;
-        console.log(userID);
         const { street1, street2, city, state, country, zipcode } = req.body;
         const result = await buyer.insertBuyerAdditionalDetails(userID, street1, street2, city, state, country, zipcode);
         if (!result.success) {
