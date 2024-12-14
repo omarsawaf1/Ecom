@@ -32,8 +32,12 @@ async function loadCategoryProducts(category) {
             <div class="product-info">
               <h3>${product.name}</h3>
               <p>Brand: ${product.brand}</p>
-              <p>Price: $${product.price}</p>
-              <p>Rating: ${product.average_rating} ★</p>
+              <span class="shop-item-description">${product.description}</span>
+              <p>Price: ${product.price} EGP</p>
+               <p>Rating: ${product.average_rating} ★ (${
+          product.rating_count
+        } reviews)</p>
+          <p>Available Units: ${product.available_units}</p>
             </div>
           `;
 

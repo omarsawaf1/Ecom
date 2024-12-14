@@ -43,8 +43,8 @@ async function displayProducts(products) {
     // Fetch image data for each product
     let imageData = await displayImage(product);
     //handling errors of null
-    if(!imageData){
-      imageData=[{image_url:"../pictures/default.jpeg"}];
+    if (!imageData) {
+      imageData = [{ image_url: "../pictures/default.jpeg" }];
     }
     // Construct product HTML
     const productHTML = `
@@ -62,6 +62,7 @@ async function displayProducts(products) {
           <p>Rating: ${product.average_rating} ★ (${
       product.rating_count
     } reviews)</p>
+          <p>Available Units: ${product.available_units}</p>
           <button
             data-id="${product.product_id}"
             data-name="${product.name}"

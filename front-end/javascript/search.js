@@ -1,6 +1,6 @@
-const goToLogin = document.querySelector(".login-btn");
+// const goToLogin = document.querySelector(".login-btn");
 
-goToLogin.addEventListener("click", () => (window.location.href = "login"));
+// goToLogin.addEventListener("click", () => (window.location.href = "login"));
 
 // test search
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Fetch image data for each product
       let imageData = await displayImage(product);
       //handling errors of null
-      if(!imageData){
-        imageData=[{image_url:"../pictures/default.jpeg"}];
+      if (!imageData) {
+        imageData = [{ image_url: "../pictures/default.jpeg" }];
       }
       const productHTML = `
         <div class="shop-item">
@@ -49,6 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="shop-item-details">
             <span class="shop-item-description">${product.description}</span>
             <span class="shop-item-price">${product.price} EGP</span>
+             <p>Rating: ${product.average_rating} ★ (${
+        product.rating_count
+      } reviews)</p>
+          <p>Available Units: ${product.available_units}</p>
             <button
               data-id="${product.product_id}"
               data-name="${product.name}"
