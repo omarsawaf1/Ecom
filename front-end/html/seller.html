@@ -38,7 +38,7 @@
           />
         </div>
         <div class="navItem">
-          <button class="login-btn">LOG IN</button>
+          <button class="logout-btn">LOG OUT</button>
         </div>
       </div>
       <div class="navBottom">
@@ -53,6 +53,7 @@
     <div class="container" style="background-color: rgb(239, 248, 248)">
       <h2 style="text-align: center">MY PRODUCTS</h2>
       <h3 style="text-align: center">ADD PRODUCTS</h3>
+
       <form id="sellerForm" class="sellerForm">
         <div class="row">
           <div class="col-25">
@@ -63,6 +64,7 @@
               type="text"
               id="productName"
               placeholder="Enter Product name"
+              required
             />
           </div>
         </div>
@@ -71,7 +73,12 @@
             <label for="brand">BRAND NAME</label>
           </div>
           <div class="col-25">
-            <input type="text" id="brand" placeholder="Enter Brand name" />
+            <input
+              type="text"
+              id="brand"
+              placeholder="Enter Brand name"
+              required
+            />
           </div>
         </div>
         <div class="row">
@@ -79,7 +86,13 @@
             <label for="price">PRICE</label>
           </div>
           <div class="col-25">
-            <input type="number" min="0" id="price" placeholder="Enter price" />
+            <input
+              type="number"
+              min="0"
+              id="price"
+              placeholder="Enter price"
+              required
+            />
             EGP
           </div>
         </div>
@@ -93,6 +106,7 @@
               min="0"
               id="units"
               placeholder="Enter Quantity"
+              required
             />
           </div>
         </div>
@@ -187,6 +201,5 @@
     </div>
     <script src="/javascript/seller.js"></script>
     <script src="/javascript/search.js"></script>
-    <script src="/javascript/login-user.js"></script>
   </body>
 </html>
