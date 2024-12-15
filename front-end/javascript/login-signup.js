@@ -96,6 +96,9 @@ document
 
       if (response.ok && result.success) {
         alert("Signup successful!");
+        // added id to sessionstorage
+        sessionStorage.setItem("userId", result.id);
+        sessionStorage.setItem("userType", loginData.userType);
         if (userType === 1) {
           window.location.href = "/seller"; // Redirect to seller page
         } else {
@@ -140,11 +143,10 @@ document
         alert("Login successful!");
         // added id to sessionstorage
         sessionStorage.setItem("userId", result.id);
+        sessionStorage.setItem("userType", loginData.userType);
         if (loginData.userType === 1) {
-          sessionStorage.setItem("userType", loginData.userType);
           window.location.href = "/seller"; // Redirect to seller page
         } else {
-          sessionStorage.setItem("userType", loginData.userType);
           window.location.href = "/"; // Redirect to buyer homepage
         }
       } else {

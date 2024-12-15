@@ -58,7 +58,8 @@ nav {
   border-radius: 50%;
 }
 
-.login-btn {
+.login-btn,
+.logout-btn {
   border: none;
   outline: none;
   background: #fff;
@@ -70,7 +71,8 @@ nav {
   cursor: pointer;
   transition: 0.15s ease;
 }
-.login-btn:hover {
+.login-btn:hover,
+.logout-btn:hover {
   background: #ddd;
 }
 a:hover {

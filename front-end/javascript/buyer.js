@@ -6,6 +6,15 @@ if (buyerId === null) {
   alert("You are not logged in.");
   window.location.href = "login";
 }
+const logoutBtn = document.querySelector(".logout-btn");
+
+logoutBtn.addEventListener("click", () => {
+  sessionStorage.removeItem("userId");
+  sessionStorage.removeItem("userType");
+  alert("Logout successful!");
+  window.location.href = "/";
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   displayBuyerInfo();
   displayBuyerAddress();
