@@ -1,9 +1,11 @@
 const userId = sessionStorage.getItem("userId");
 console.log(`user id : ${userId}`);
+
 if (userId === null) {
   alert("You are not logged in.");
   window.location.href = "login";
 }
+
 document
   .getElementById("checkout-form")
   .addEventListener("submit", async (event) => {
@@ -35,9 +37,6 @@ document
       return;
     }
 
-    // Calculate total price
-    // const totalPrice = JSON.parse(sessionStorage.getItem("total")) || [];
-
     // Create an order object
     const order = {
       productOrders: cartItems.map((item) => ({
@@ -49,7 +48,40 @@ document
     console.log("Order Object:", order);
 
     try {
-      // Send Data to Backend
+      // Check if card info already exists
+      const checkCardResponse = await fetch(
+        `api/buyers/${userId}/credit-card/`
+      );
+      const checkCardData = await checkCardResponse.json();
+
+      let cardExists = false;
+
+      if (checkCardResponse.ok && checkCardData.success) {
+        const existingCards = checkCardData.result.data || [];
+        cardExists = existingCards.some(
+          (card) =>
+            card.card_number === `************${cardInfo.cardNumber.slice(-4)}`
+        );
+      }
+
+      if (cardExists) {
+        console.log("Card already exists. Skipping card info submission.");
+      } else {
+        console.log("Card does not exist. Submitting new card info.");
+        const responseCard = await fetch(`api/buyers/${userId}/credit-card/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(cardInfo),
+        });
+
+        if (!responseCard.ok) {
+          throw new Error("Failed to submit card info.");
+        }
+      }
+
+      // Send additional details
       const responseDetails = await fetch(
         `api/buyers/${userId}/additional-details/`,
         {
@@ -61,14 +93,11 @@ document
         }
       );
 
-      const responseCard = await fetch(`api/buyers/${userId}/credit-card/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cardInfo),
-      });
+      if (!responseDetails.ok) {
+        throw new Error("Failed to submit additional details.");
+      }
 
+      // Submit the order
       const responseOrder = await fetch(`api/buyers/${userId}/orders/`, {
         method: "POST",
         headers: {
@@ -77,9 +106,7 @@ document
         body: JSON.stringify(order),
       });
 
-      if (responseDetails.ok && responseCard.ok && responseOrder.ok) {
-        const resultDetails = await responseDetails.json();
-        const resultCard = await responseCard.json();
+      if (responseOrder.ok) {
         const resultOrder = await responseOrder.json();
         console.log("Order Result:", resultOrder);
 

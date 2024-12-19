@@ -1,8 +1,6 @@
-// const goToLogin = document.querySelector(".login-btn");
-
-// goToLogin.addEventListener("click", () => (window.location.href = "login"));
-
-// test search
+// to add "<p class='no-results'>No products found.</p>" when there is no result and data.sucess true but not in database
+// also add to focus after deleting from search and find better way than reloding
+// search
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(".searchInput");
   const shopItemContainer = document.getElementById("shop-item-container");
