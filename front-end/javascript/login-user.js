@@ -3,6 +3,7 @@ const loginDiv = document.querySelector(".navItem");
 const userType = sessionStorage.getItem("userType");
 const myProfile = document.getElementById("myProfile");
 const myCart = document.getElementById("myCart");
+const myCartSpan = document.getElementById("myCartSpan");
 
 console.log(`user type : ${userType}`);
 
@@ -34,6 +35,7 @@ try {
 
   if (userType === "1") {
     myCart.style.display = "none";
+    myCartSpan.style.display = "none";
   }
 } catch (error) {
   console.log(`Error don't worry error from login-user.js normal : ${error}`);
