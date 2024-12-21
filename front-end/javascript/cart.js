@@ -19,30 +19,19 @@ function ready() {
     let input = quantityInputs[i];
     input.addEventListener("change", quantityChanged);
   }
-
-  document
-    .getElementsByClassName("btn-purchase")[0]
-    .addEventListener("click", purchaseClicked);
+  // last changed
+  // document
+  //   .getElementsByClassName("btn-purchase")[0]
+  //   .addEventListener("click", purchaseClicked);
 }
 
 // function purchaseClicked() {
-//   alert("Thank you for your purchase");
 //   let cartItems = document.getElementsByClassName("cart-items")[0];
 //   while (cartItems.hasChildNodes()) {
 //     cartItems.removeChild(cartItems.firstChild);
 //   }
-//   sessionStorage.setItem("cart", JSON.stringify([])); // Clear session storage
 //   updateCartTotal();
 // }
-function purchaseClicked() {
-  // alert("Thank you for your purchase");
-  // a empty div to add html in it by javascript dom (1)
-  let cartItems = document.getElementsByClassName("cart-items")[0];
-  while (cartItems.hasChildNodes()) {
-    cartItems.removeChild(cartItems.firstChild);
-  }
-  updateCartTotal();
-}
 
 function removeCartItem(event) {
   let buttonClicked = event.target;
@@ -124,7 +113,7 @@ function addToCart() {
       </div>
       <span class="cart-price cart-column">${item.price} EGP</span>
       <div class="cart-quantity cart-column">
-          <input class="cart-quantity-input" type="number" value="${item.quantity}">
+          <input class="cart-quantity-input" type="number" min=1 value="${item.quantity}">
           <button class="btn btn-danger" type="button">REMOVE</button>
       </div>`;
     cartRow.innerHTML = cartRowContents;
