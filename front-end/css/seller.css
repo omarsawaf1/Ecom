@@ -111,3 +111,10 @@ input[type="submit"]:hover {
 .container {
   margin: 0 auto;
 }
+.seller-item{
+  width: 30%;
+  padding: 25px;
+  border: #060808 solid 1px;
+  background-color: rgb(253, 253, 253);
+  float: left;
+}
