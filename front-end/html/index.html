@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <!-- <link rel="stylesheet" href="/css/hi.css" /> -->
   </head>
   <body class="body1">
     <nav>
@@ -42,47 +43,70 @@
       </div>
       <div class="navBottom">
         <a class="menuItems" href="supermarket">Supermarket</a>
+        <span class="menuItems">|</span>
         <a class="menuItems" href="clothes">Clothes</a>
+        <span class="menuItems">|</span>
         <a class="menuItems" href="electronics">Electronics</a>
+        <span class="menuItems">|</span>
         <a class="menuItems" id="myCart" href="cart">Shopping cart</a>
+        <span class="menuItems">|</span>
         <a class="menuItems" id="myProfile" href="#">My profile</a>
       </div>
     </nav>
     <header>
       <h1>SOUQ.COM ONE OF THE BEST SHOPPING EXPERINCES</h1>
     </header>
-    <marquee>60% off Sale until 21 December</marquee>
-    <div class="container" id="shop-item-container">
+    <marquee>60% off Sale until 30 December</marquee>
+    <div class="container" id="preview-item-container">
       <section id="deals">
         <h2>Today's deals</h2>
         <p>Here is some information about it...</p>
 
         <!-- working on -->
-        <!-- <div class="shop-item-container" id="shop-item-container"> -->
+        <!-- <div class="preview-item-container" id="preview-item-container"> -->
         <!-- Products will be dynamically loaded here -->
         <!-- </div> -->
 
         <a class="pageLink" href="deals">Latest deals</a>
       </section>
-      <section id="supermarket">
+      <section class="category-btn" id="supermarket">
         <h2>Supermarket essentials</h2>
-        <div class="shop-item-container" id="shop-item-container">
-          <!-- Products will be dynamically loaded here -->
+        <button class="slider-button prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="preview-item-container">
+          <!-- Product cards dynamically loaded here -->
         </div>
+        <button class="slider-button next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
         <a class="pageLink" href="supermarket">Shop now</a>
       </section>
-      <section id="clothes">
+      <section class="category-btn" id="clothes">
         <h2>Clothes</h2>
-        <div class="shop-item-container" id="shop-item-container">
-          <!-- Products will be dynamically loaded here -->
+        <button class="slider-button prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="preview-item-container">
+          <!-- Product cards dynamically loaded here -->
         </div>
+        <button class="slider-button next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
         <a class="pageLink" href="clothes">Shop now</a>
       </section>
-      <section id="electronics">
+      <section class="category-btn" id="electronics">
         <h2>Electronics</h2>
-        <div class="shop-item-container" id="shop-item-container">
-          <!-- Products will be dynamically loaded here -->
+        <button class="slider-button prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="preview-item-container">
+          <!-- Product cards dynamically loaded here -->
         </div>
+        <button class="slider-button next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
         <a class="pageLink" href="electronics">Shop now</a>
       </section>
     </div>
