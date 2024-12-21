@@ -1,12 +1,8 @@
 body {
   background-color: #eee;
 }
-.container {
-  color: #d2cfcf;
-  font-size: 13px;
-  /* display: flex;
-  justify-content: center; */
-}
+
+
 .card {
   background-color: #fff;
   /* width: 500px; */
@@ -88,3 +84,18 @@ body {
 .btn-danger:hover {
   background-color: #cc4c4c;
 }
+
+  .buyerinfo {
+    display: flex;
+    flex-direction: row;
+    
+   ;
+  }
+  #orders-info {
+    border: #000 solid 1px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+ 

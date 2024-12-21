@@ -14,7 +14,7 @@ body {
   margin: 0;
 }
 .body1 {
-  background-color: #9df9ef;
+  background-color: #daecea;
 }
 .container {
   max-width: 1300px;
@@ -490,6 +490,7 @@ html {
   grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
   gap: 20px;
   padding: 20px;
+  
 }
 
 /* Style for individual product items */
