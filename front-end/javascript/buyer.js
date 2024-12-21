@@ -128,6 +128,7 @@ async function displayBuyerOrders() {
   );
 
   const ordersSection = document.getElementById("orders-info");
+  
   ordersSection.innerHTML = `
     <h2>Orders Info:</h2>
     ${ordersHTML.join("")}
