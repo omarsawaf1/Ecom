@@ -28,7 +28,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: demo
     ports:
-      - "3306:3306"
+      - "3306:3306" #if you get an error from the mysql container you might need to change the port
     volumes:
       - db_data:/var/lib/mysql
     # secrets:
