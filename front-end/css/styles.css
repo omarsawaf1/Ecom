@@ -76,9 +76,9 @@ nav {
 }
 
 .logo img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  /* border-radius: 50%; */
 }
 
 .login-btn {
@@ -443,15 +443,25 @@ html {
   margin: 8px;
 }
 
-.about-section {
+.about-section h1 {
   padding: 50px;
   text-align: center;
   background-color: #474e5d;
   color: white;
 }
+.about-section p {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin: 20px auto;
+  width: 50%;
+  text-align: justify;
+  text-justify: inter-word;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
 .container {
-  padding: 0 16px;
+  padding: 20px 16px;
 }
 
 .container::after,
