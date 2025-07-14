@@ -47,9 +47,11 @@ header {
 }
 
 .navbar .logo img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 50px;
+  /* border-radius: 50%; */
 }
 
 /* .navbar .logo h2 {
