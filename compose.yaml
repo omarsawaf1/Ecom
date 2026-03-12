@@ -13,6 +13,11 @@ services:
       context: .
     environment:
       NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_DATABASE: mydb
     ports:
       - 3000:3000
     depends_on: 
@@ -26,11 +31,12 @@ services:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: demo
+      MYSQL_DATABASE: mydb
     ports:
       - "3306:3306" #if you get an error from the mysql container you might need to change the port
     volumes:
       - db_data:/var/lib/mysql
+      - ./data-base-designs/docker-init-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
     # secrets:
     #   - db-password
 volumes:
